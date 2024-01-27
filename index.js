@@ -35,6 +35,7 @@ function searchArtists() {
   const searchInput = document.getElementById("search");
   const searchTerm = searchInput.value.toLowerCase();
   console.log(searchTerm, typeof searchTerm)
+  
 
   const filteredArtists = artistsData.filter(artist => {
     const artistInfo = Object.values(artist).join(" ").toLowerCase();

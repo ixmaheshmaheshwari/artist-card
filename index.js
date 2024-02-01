@@ -31,14 +31,28 @@ function NoArtistCardO(term) {
   card.innerHTML = `
     <div class="card" style="height: 15rem;">
       <div class="card-body">
-        <h5 class="card-title"><strong>No such Record found- ${term}</strong></h5>
-        <p class="card-text">No record are found the searched element-${term}. Please search for other element</p>
+        <h5 class="card-title"><strong>No such Name found- ${term}</strong></h5>
+        <p class="card-text">No record are found the searched Name-${term}. Please search for other Name</p>
       </div>
     </div>
   `;
 
   container.appendChild(card);
 }
+const debounce = (func, delay) => {
+  let debounceTimer
+  return function () {
+      const context = this
+      const args = arguments
+      clearTimeout(debounceTimer)
+      debounceTimer
+          = setTimeout(() => func.apply(context, args), delay)
+  }
+}
+
+
+
+
 function displayArtistCards(artistData) {
 const container = document.getElementById("rows");
   container.innerHTML = '';
@@ -52,12 +66,9 @@ const container = document.getElementById("rows");
 function searchArtists() {
   const searchInput = document.getElementById("search");
   const searchTerm = searchInput.value.toLowerCase();
-  console.log(searchTerm, typeof searchTerm)
-
-
+console.log("deb")
   const filteredArtists = artistsData.filter(artist => {
-    const artistInfo = Object.values(artist).join(" ").toLowerCase();
-    console.log(artistInfo, typeof artistInfo)
+    const artistInfo = artist.name.toLowerCase();
     return artistInfo.includes(searchTerm);
   });
 if(filteredArtists.length===0){
@@ -66,8 +77,10 @@ if(filteredArtists.length===0){
   displayArtistCards(filteredArtists);
 }
 }
-document.getElementById("searchBtn").addEventListener("click", searchArtists);
-document.getElementById("search").addEventListener("input", searchArtists);
+document.getElementById("search").addEventListener("input", debounce(searchArtists, 1500));
+
+
+// document.getElementById("searchBtn").addEventListener("click", debounce(() => searchArtists));
 document.addEventListener('DOMContentLoaded', () =>{
   displayArtistCards(artistsData);
 });

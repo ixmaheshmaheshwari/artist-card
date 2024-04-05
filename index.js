@@ -3,11 +3,11 @@ function createArtistCard(artist) {
   const card = document.createElement("div");
   card.classList.add("col-lg-4", "col-md-6", "col-sm-12", "mb-4");
   card.style = "width:15rem;"
-  card.style = "height:auto;"
+  card.style = "height:25rem;"
 
   card.innerHTML = `
-    <div class="card">
-      <div class="card-body">
+    <div class="card" >
+      <div class="card-body" >
         <h5 class="card-title">${artist.name}</h5>
         <p class="card-text"><strong>Birth Year: </strong>${artist.birthYear}</p>
         <p class="card-text"><strong>Country: </strong>${artist.country}</p>

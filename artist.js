@@ -5,7 +5,7 @@ const artistsData = [
       country: "United Kingdom",
       genres: ["Pop", "Dance"],
       hitSongs: ["Don't Start Now", "New Rules"],
-      description: "Dua Lipa is known for her captivating pop and dance music."
+      description: "Dua Lipa is known for her captivating pop and dance music.Dua Lipa is known for her captivating pop and dance music.Dua Lipa is known for her captivating pop and dance music.Dua Lipa is known for her captivating pop and dance music."
     },
     {
       name: "Katy Perry",
